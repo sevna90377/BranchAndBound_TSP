@@ -6,21 +6,22 @@
 
 DynamicArray* FileHandler::loadFromFile(std::string filename) {
 
-    std::ifstream file(filename);
+    DynamicArray* matrix = new DynamicArray();
+    int graph_order;
+    file = new std::ifstream(filename);
 
-    if (!file.is_open()) {
+    if (!file->is_open()) {
         std::cerr << "FAILURE on loading the file" << std::endl;
     }
 
-    file >> graph_order;
+    *file >> graph_order;
 
     matrix->allocate(graph_order);
 
     int value;
-
     for (int i = 0; i < graph_order; i++) {
         for (int j = 0; j < graph_order; j++) {
-            file >> value;
+            *file >> value;
             matrix->setEdge(i, j, value);
         }
     }

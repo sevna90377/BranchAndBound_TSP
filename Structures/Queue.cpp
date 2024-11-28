@@ -41,8 +41,6 @@ SubSolutionNode* Structures::Queue::DequeueLast(int pop)
     if (last_ptr == nullptr) return nullptr;
 
     SubSolutionNode* last = last_ptr;
-    last->previous = nullptr;
-    last->next = nullptr;
 
     if (pop) {
         last_ptr = last_ptr->previous;

@@ -5,6 +5,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 class DynamicArray
 {
@@ -22,10 +23,9 @@ public:
     void allocate(int size);
     void setEdge(int v1, int v2, int weight);
 
-    int minimise();
-
     int isEmpty() const;  // 0 == empty
     int GetEdge(int v1, int v2) const { return matrix[v1][v2]; }
+    int GetSize() const { return graph_order; }
 
 private:
     int graph_order;

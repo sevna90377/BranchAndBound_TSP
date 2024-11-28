@@ -47,7 +47,6 @@ void DynamicArray::allocate(int order)
         }
     }
 }
-
 void DynamicArray::deallocate()
 {
 
@@ -64,11 +63,6 @@ void DynamicArray::setEdge(int v1, int v2, int weight)
     matrix[v1][v2] = weight;
 }
 
-int DynamicArray::minimise()
-{
-    return 0;
-
-}
 
 int DynamicArray::isEmpty() const
 {

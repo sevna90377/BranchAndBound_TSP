@@ -1,36 +1,34 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 // struct pozwalaj¹cy zachowaæ reprezentacje kolejnych rozwi¹zañ czêœciowych
 // do póŸniejszego rozpatrzenia
 
 struct SubSolutionNode {
 
-	int* path;	// czêœciowa œcie¿ka 
-	int depth;	// jak daleko od pocz¹tkowego wierzcho³ka, d³ugoœæ path
+	std::vector<bool> visited;
+	std::vector<int> path;	// czêœciowa œcie¿ka
+	int path_length;		// jak daleko od pocz¹tkowego wierzcho³ka
 
 	int subCost;
 	int subBound;
 
+	// wskaŸniki wykorzystywane przez Queue
 	SubSolutionNode* previous;
 	SubSolutionNode* next;
 
-	SubSolutionNode(int depth, int prevCost, SubSolutionNode* previous, SubSolutionNode* next){
-		this->depth = depth;
-		path = new int[depth];
-		subCost = prevCost;
-		subBound = 0;
-		this->previous = previous;
-		this->next = next;
-	}
+	SubSolutionNode(int path_length, std::vector<int> path, std::vector<bool> visited, int subCost, int subBound)
+        : path_length(path_length), subCost(subCost), subBound(subBound), previous(nullptr), next(nullptr) {
+    }
 
-	~SubSolutionNode() {
-		delete path;
+	bool operator<(const SubSolutionNode& other) const {
+		return subBound > other.subBound; // nadpisanie operatora mniejszoœci tak, ¿e priorytet bazuje na subBound
 	}
 
 	std::string toString() {
-		std::string ret;
+		std::string ret = "";
 
 		return ret;
 	}

@@ -11,8 +11,8 @@ class FileHandler
 {
 public:
     DynamicArray* loadFromFile(std::string filename);
+    void loadConfig();
 
 private:
-    DynamicArray* matrix = new DynamicArray();
-    int graph_order = 0;
+    std::ifstream* file;
 };

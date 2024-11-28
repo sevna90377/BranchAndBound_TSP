@@ -6,16 +6,8 @@ int main()
 {
     BB_TSP* solver = new BB_TSP();
     solver->SetConfig("6x6.txt");
-    solver->solveTSP();
 }
 
-
-
-int BB_TSP::solveTSP()
-{
-
-    return 0;
-}
 
 int BB_TSP::SetConfig(std::string config_filename)
 {
@@ -27,4 +19,9 @@ int BB_TSP::SetConfig(std::string config_filename)
     }
 
     return 0;
+}
+
+DynamicArray* BB_TSP::solveBFS()
+{
+    return nullptr;
 }
